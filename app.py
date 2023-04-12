@@ -3,8 +3,6 @@ import requests
 
 st.title('PlantNet API')
 
-# Create a form for the API key
-api_key = st.text_input('Enter your PlantNet API key')
 
 # Create a form for the image file
 image_file = st.file_uploader('Upload an image')
