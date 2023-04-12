@@ -17,7 +17,7 @@ if st.button('Identify'):
         'include-related-images': 'false',
         'no-reject': 'false',
         'lang': 'en',
-        'api-key': 2b10PuYKEhDAUVIEKvdS6itjc
+        'api-key': '2b10PuYKEhDAUVIEKvdS6itjc'
     }
     files = {
         'images': image_file.read()
