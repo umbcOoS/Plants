@@ -3,6 +3,7 @@ import requests
 
 st.title('PlantNet API')
 
+
 # Create a form for the image file
 image_file = st.file_uploader('Upload an image')
 
@@ -24,6 +25,7 @@ if st.button('Identify'):
     # Display the API results
     if response.ok:
         results = response.json()
+        results = response.json()
         for result in results['suggestions']:
             st.markdown(f"### Plant Species: {result['plant_name']['species']}")
             st.markdown(f"**Common Names:** {', '.join(result['plant_name']['common_names']['en'])}")
@@ -32,5 +34,6 @@ if st.button('Identify'):
             st.image(result['plant_name']['complete_image']['url'], width=300)
             st.markdown(f"**[PlantNet Page]({result['plant_name']['url']})**")
             st.write('---')  # Add a horizontal line for separation
+        st.json(results)
     else:
         st.error(f"API request failed with status code {response.status_code}")
