@@ -25,8 +25,19 @@ if st.button('Identify'):
     # Display the API results
     if response.ok:
         results = response.json()
-        st.json(results)
-        st.markdown(results)
-        st.json(results, indent=4, expand_all=True, css='font-size: 16px; line-height: 1.5;')
+           for result in results:
+            st.markdown('**Result**')
+            st.write('Common name:', result['plant_name']['common_name'])
+            st.write('Scientific name:', result['plant_name']['scientific_name'])
+            image_url = result['images'][0]['url']
+            image_response = requests.get(image_url)
+            image = Image.open(BytesIO(image_response.content))
+            st.image(image, caption='Plant Image', use_column_width=True)
+            st.write('Confidence:', result['score'])
+            st.write('Family:', result['plant_name']['family'])
+            st.write('Genus:', result['plant_name']['genus'])
+            st.write('Species:', result['plant_name']['species'])
+            st.write('Plant ID:', result['plant_id'])
+            st.markdown('---')
     else:
         st.error(f"API request failed with status code {response.status_code}")
