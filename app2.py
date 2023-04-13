@@ -29,7 +29,7 @@ if st.button('Identify'):
         for result in results['results']:
             st.markdown('**Result**')
             st.write('Common name:', result['species']['commonNames'])
-            st.write('Scientific name:', result['scientificNameWithoutAuthor'])
+            st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
             image_url = result['images'][0]['url']
             image_response = requests.get(image_url)
             image = Image.open(BytesIO(image_response.content))
