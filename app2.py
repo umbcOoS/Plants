@@ -30,10 +30,6 @@ if st.button('Identify'):
             st.markdown('**Result**')
             st.write('Common name:', result['species']['commonNames'][0])
             st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
-            image_url = result['images'][0]['url']
-            image_response = requests.get(image_url)
-            image = Image.open(BytesIO(image_response.content))
-            st.image(image, caption='Plant Image', use_column_width=True)
             st.write('Confidence:', result['score'])
             st.write('GBIF:', result['gbif']['id'])
             st.markdown('---')
