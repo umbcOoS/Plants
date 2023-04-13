@@ -31,7 +31,7 @@ if st.button('Identify'):
             st.write('Confidence:', result['score'])
             st.write('Common name:', result['species']['commonNames'][0])
             st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
-            st.write('GBIF:', result'gbif.org/species/'['gbif']['id'])
+            st.write('GBIF:', result['gbif']['id'])
             st.markdown('---')
     else:
         st.error(f"API request failed with status code {response.status_code}")
