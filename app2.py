@@ -25,7 +25,7 @@ if st.button('Identify'):
     # Display the API results
     if response.ok:
         results = response.json()
-           for result in results:
+        for result in results:
             st.markdown('**Result**')
             st.write('Common name:', result['plant_name']['common_name'])
             st.write('Scientific name:', result['plant_name']['scientific_name'])
