@@ -28,7 +28,7 @@ if st.button('Identify'):
         results = response.json()
         for result in results['results']:
             st.markdown('**Result**')
-            st.write('Common name:', result['bestMatch']['commonNames'])
+            st.write('Common name:', result['species']['commonNames'])
             st.write('Scientific name:', result['scientificNameWithoutAuthor'])
             image_url = result['images'][0]['url']
             image_response = requests.get(image_url)
