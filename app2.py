@@ -25,7 +25,7 @@ if st.button('Identify'):
     if response.ok:
         results = response.json()
         st.markdown('**API Results**')
-        st.json(results, indent=4, expand_all=True)
+        st.json(results,expand_all=True)
     else:
         st.error(f"API request failed with status code {response.status_code}")
 
