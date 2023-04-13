@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-st.title('PlantNet API')
+st.title('UMBC Invasives ID')
 
 
 # Create a form for the image file
