@@ -28,10 +28,10 @@ if st.button('Identify'):
         results = response.json()
         for result in results['results']:
             st.markdown('**Result**')
+            st.write('Confidence:', result['score'])
             st.write('Common name:', result['species']['commonNames'][0])
             st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
-            st.write('Confidence:', result['score'])
-            st.write('GBIF:', result['gbif']['id'])
+            st.write('GBIF:', result'gbif.org/species/'['gbif']['id'])
             st.markdown('---')
     else:
         st.error(f"API request failed with status code {response.status_code}")
