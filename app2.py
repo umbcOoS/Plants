@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from PIL import Image
 from io import BytesIO
+from urllib.parse import urlencode
 
 st.title('UMBC Invasives IDbeta')
 
@@ -31,7 +32,9 @@ if st.button('Identify'):
             st.write('Confidence:', result['score'])
             st.write('Common name:', result['species']['commonNames'][0])
             st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
-            st.write('GBIF:', result['gbif']['id'])
+            gbif_id = result['gbif']['id']
+            gbif_url = f'https://www.gbif.org/species/{urlencode(gbif_id)}'
+            st.markdown(f'GBIF: [{gbif_id}]({gbif_url})', unsafe_allow_html=True)
             st.markdown('---')
     else:
         st.error(f"API request failed with status code {response.status_code}")
