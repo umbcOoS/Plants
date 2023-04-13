@@ -28,4 +28,4 @@ if st.button('Identify'):
         st.json(results, indent=4, expand_all=True)
     else:
         st.error(f"API request failed with status code {response.status_code}")
-st.json(results, indent=4, expand_all=True, css='font-size: 16px; line-height: 1.5;')
+
