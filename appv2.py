@@ -26,7 +26,7 @@ if st.button('Identify'):
     if response.ok:
         results = response.json()
         results = response.json()
-        for result in results['suggestions']:
+        for result in results['results']:
             st.markdown(f"### Plant Species: {result['plant_name']['species']}")
             st.markdown(f"**Common Names:** {', '.join(result['plant_name']['common_names']['en'])}")
             st.markdown(f"**Scientific Name:** {result['plant_name']['scientific_name']['genus']} {result['plant_name']['scientific_name']['species']}")
