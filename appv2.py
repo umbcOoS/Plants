@@ -24,15 +24,13 @@ if st.button('Identify'):
     # Display the API results
     if response.ok:
         results = response.json()
-        if 'suggestions' in results:
-            for result in results['suggestions']:
-                image_url = result['plant_name']['complete_image']['url']
-                st.image(image_url, caption=result['plant_name']['common_names']['en'], width=300)
-                # Display the stylized text
-                st.markdown(f"**Common Name:** {result['plant_name']['common_names']['en']}")
-                st.markdown(f"**Family:** {result['plant_name']['family']['scientific_name']['genus']} {result['plant_name']['family']['scientific_name']['species']}")
-                st.markdown(f"**Genus:** {result['plant_name']['genus']['scientific_name']['genus']} {result['plant_name']['genus']['scientific_name']['species']}")
-        else:
-            st.warning('No plant suggestions found.')
+        for result in results['suggestions']:
+            st.markdown(f"### Plant Species: {result['plant_name']['species']}")
+            st.markdown(f"**Common Names:** {', '.join(result['plant_name']['common_names']['en'])}")
+            st.markdown(f"**Scientific Name:** {result['plant_name']['scientific_name']['genus']} {result['plant_name']['scientific_name']['species']}")
+            st.markdown(f"**Score:** {result['score']}%")
+            st.image(result['plant_name']['complete_image']['url'], width=300)
+            st.markdown(f"**[PlantNet Page]({result['plant_name']['url']})**")
+            st.write('---')  # Add a horizontal line for separation
     else:
         st.error(f"API request failed with status code {response.status_code}")
