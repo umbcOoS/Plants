@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-st.title('UMBC Invasives ID')
+st.title('UMBC Invasives IDbeta')
 
 
 # Create a form for the image file
@@ -27,5 +27,6 @@ if st.button('Identify'):
         results = response.json()
         st.json(results)
         st.markdown(results)
+        st.json(results, indent=4, expand_all=True)
     else:
         st.error(f"API request failed with status code {response.status_code}")
