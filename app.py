@@ -12,7 +12,7 @@ if st.button('Identify'):
     # Make an API request
     url = 'https://my-api.plantnet.org/v2/identify/all'
     params = {
-        'include-related-images': 'false',
+        'include-related-images': 'true',
         'no-reject': 'false',
         'lang': 'en',
         'api-key': '2b10PuYKEhDAUVIEKvdS6itjc'
