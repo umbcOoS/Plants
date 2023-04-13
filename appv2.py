@@ -24,13 +24,15 @@ if st.button('Identify'):
     # Display the API results
     if response.ok:
         results = response.json()
-        # Display the images
-        for result in results['suggestions']:
-            image_url = result['plant_name']['complete_image']['url']
-            st.image(image_url, caption=result['plant_name']['common_names']['en'], width=300)
-            # Display the stylized text
-            st.markdown(f"**Common Name:** {result['plant_name']['common_names']['en']}")
-            st.markdown(f"**Family:** {result['plant_name']['family']['scientific_name']['genus']} {result['plant_name']['family']['scientific_name']['species']}")
-            st.markdown(f"**Genus:** {result['plant_name']['genus']['scientific_name']['genus']} {result['plant_name']['genus']['scientific_name']['species']}")
+        if 'suggestions' in results:
+            for result in results['suggestions']:
+                image_url = result['plant_name']['complete_image']['url']
+                st.image(image_url, caption=result['plant_name']['common_names']['en'], width=300)
+                # Display the stylized text
+                st.markdown(f"**Common Name:** {result['plant_name']['common_names']['en']}")
+                st.markdown(f"**Family:** {result['plant_name']['family']['scientific_name']['genus']} {result['plant_name']['family']['scientific_name']['species']}")
+                st.markdown(f"**Genus:** {result['plant_name']['genus']['scientific_name']['genus']} {result['plant_name']['genus']['scientific_name']['species']}")
+        else:
+            st.warning('No plant suggestions found.')
     else:
         st.error(f"API request failed with status code {response.status_code}")
