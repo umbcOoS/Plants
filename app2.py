@@ -3,6 +3,7 @@ import requests
 
 st.title('UMBC Invasives ID')
 
+
 # Create a form for the image file
 image_file = st.file_uploader('Upload an image')
 
@@ -24,8 +25,7 @@ if st.button('Identify'):
     # Display the API results
     if response.ok:
         results = response.json()
-        st.markdown('**API Results**')
-        st.json(results,expand_all=True)
+        st.json(results)
+         st.markdown('**API Results**')
     else:
         st.error(f"API request failed with status code {response.status_code}")
-
