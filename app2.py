@@ -33,7 +33,7 @@ if st.button('Identify'):
             st.write('Common name:', result['species']['commonNames'][0])
             st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
             gbif_id = result['gbif']['id']
-            gbif_url = f'https://www.gbif.org/species/{urlencode({gbif_id})}'
+            gbif_url = f'https://www.gbif.org/species/{gbif_id}'
             st.markdown(f'GBIF: [{gbif_id}]({gbif_url})', unsafe_allow_html=True)
             st.markdown('---')
     else:
