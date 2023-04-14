@@ -1,21 +1,21 @@
 # UMBC Invasive Plants Identification App
 This is a web application that allows users to identify invasive plants using images. It utilizes the Plant.ID API provided by PlantNet, a collaborative research platform on plant biodiversity. The app is built using Streamlit, a Python framework for building interactive web applications.
 
-##Features
--Upload an image (jpeg only) of a plant for identification.
--Displays identification results including ID confidence score, common name, scientific name, and a link to the species on the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/) website.
--Results are limited to the top 5 matches to avoid clutter.
+## Features
+- Upload an image (jpeg only) of a plant for identification.
+- Displays identification results including ID confidence score, common name, scientific name, and a link to the species on the [Global Biodiversity Information Facility (GBIF)](https://www.gbif.org/) website.
+- Results are limited to the top 5 matches to avoid clutter.
 
 
-##Installation
+## Installation
 To run the app locally, follow these steps:
 
--Clone the repository: git clone https://github.com/umbcOoS/Plants.git
--Install the required libraries: pip install -r requirements.txt
--Run the app: streamlit run app.py
--Open a web browser and go to http://localhost:8501
+- Clone the repository: git clone https://github.com/umbcOoS/Plants.git
+- Install the required libraries: pip install -r requirements.txt
+- Run the app: streamlit run app.py
+- Open a web browser and go to http://localhost:8501
 
-##How to Use
+## How to Use
 1. Open the app in a web browser.
 2. Upload a jpeg image of a plant using the file uploader.
 3. Click the "Identify" button to trigger the identification process.
@@ -23,7 +23,7 @@ To run the app locally, follow these steps:
 5. Click on the GBIF link to access more information about the identified species.
 
 
-##Contributing
+## Contributing
 If you would like to contribute to this project, please follow these steps:
 
 1. Fork the repository
@@ -34,11 +34,11 @@ If you would like to contribute to this project, please follow these steps:
 6. Provide a clear description of your changes and why they are necessary.
 7. Wait for feedback and address any comments or suggestions.
 
-##Credits
+## Credits
 This app was created by the [UMBC Office of Sustainability](https://sustainability.umbc.edu/).  
 
-##License
+## License
 This app is released under the [MIT License](https://opensource.org/license/mit/). Feel free to use, modify, and distribute it according to the terms of the license.
 
-##Contact 
+## Contact 
 If you have any questions, comments, or feedback, please feel free to contact us at sustainability@umbc.edu
