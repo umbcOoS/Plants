@@ -27,7 +27,7 @@ st.markdown('<div style="text-align:center;">'
 
 
 # Create a form for the image file
-image_file = st.file_uploader('Upload an image')
+image_file = st.file_uploader('Upload an image of the plant you want to ID')
 
 # Create a button to submit the form
 if st.button('Identify'):
@@ -44,8 +44,6 @@ if st.button('Identify'):
     }
     response = requests.post(url, params=params, files=files)
 
-    # Display the API results
-   # ... existing code ...
 
 # Display the API results
 if response.ok:
