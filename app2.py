@@ -18,7 +18,6 @@ st.markdown('<h1 style="text-align:center; color:#fdb515;">UMBC Invasives Plants
 image_url = 'https://pbs.twimg.com/profile_images/1248247779010310146/L8X8lRyH_400x400.jpg'
 image_response = requests.get(image_url)
 image = Image.open(BytesIO(image_response.content))
-
 # Center the image using CSS styling
 st.markdown('<div style="text-align:center;">'
             f'<a href="https://sustainability.umbc.edu/" target="_blank">'
