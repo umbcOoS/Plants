@@ -39,7 +39,6 @@ if response.ok:
         st.markdown('**Result**')
         score_percent = result['score'] * 100  # Convert score to percentage
         st.markdown(f'<p style="font-size:24px;font-weight:bold;">Confidence: {score_percent:.2f}%</p>', unsafe_allow_html=True)  # Display score as a percentage with 2 decimal places, in bold and larger font
-        st.write('Confidence:', f'{score_percent:.1f}%')  # Display score as a percentage with 1 decimal places
         st.write('Common name:', result['species']['commonNames'][0])
         st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
         st.markdown('*Scientific name:*', unsafe_allow_html=True)  # Italicize "Scientific name" label
