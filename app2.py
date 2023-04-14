@@ -5,6 +5,13 @@ from io import BytesIO
 from urllib.parse import urlencode
 
 st.title('UMBC Invasives IDbeta')
+# Load the image from URL
+image_url = 'https://pbs.twimg.com/profile_images/1248247779010310146/L8X8lRyH_400x400.jpg'
+image_response = requests.get(image_url)
+image = Image.open(BytesIO(image_response.content))
+
+# Display the image
+st.image(image, width=200)  # Set the width of the image to 200 pixels
 
 # Create a form for the image file
 image_file = st.file_uploader('Upload an image')
