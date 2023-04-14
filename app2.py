@@ -4,6 +4,13 @@ from PIL import Image
 from io import BytesIO
 from urllib.parse import urlencode
 
+# Add "Fork me on GitHub" banner
+st.markdown('<a href="https://github.com/umbcOoS/Plants" target="_blank">'
+            '<img style="position: absolute; top: 0; right: 0; border: 0;" '
+            'src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" '
+            'alt="Fork me on GitHub">'
+            '</a>', unsafe_allow_html=True)
+
 # Center the title using CSS styling
 st.markdown('<h1 style="text-align:center; color:#fdb515;">UMBC Invasives Plants Identification App</h1>', unsafe_allow_html=True)
 
@@ -18,12 +25,7 @@ st.markdown('<div style="text-align:center;">'
             f'<img src="{image_url}" width="200" />'
             '</a>'
             '</div>', unsafe_allow_html=True)
-# Add "Fork me on GitHub" banner
-st.markdown('<a href="https://github.com/umbcOoS/Plants" target="_blank">'
-            '<img style="position: absolute; top: 0; right: 0; border: 0;" '
-            'src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" '
-            'alt="Fork me on GitHub">'
-            '</a>', unsafe_allow_html=True)
+
 
 # Create a form for the image file
 image_file = st.file_uploader('Upload an image')
