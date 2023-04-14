@@ -20,7 +20,7 @@ image_response = requests.get(image_url)
 image = Image.open(BytesIO(image_response.content))
 # Center the image using CSS styling
 st.markdown('<div style="text-align:center;">'
-            f'<a href="https://sustainability.umbc.edu/" target="_blank">'
+            f'<a href="https://sustainability.umbc.edu/">'
             f'<img src="{image_url}" width="200" />'
             '</a>'
             '</div>', unsafe_allow_html=True)
