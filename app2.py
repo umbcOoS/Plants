@@ -5,21 +5,18 @@ from io import BytesIO
 from urllib.parse import urlencode
 
 st.title('UMBC Invasives IDbeta')
+
 # Load the image from URL
 image_url = 'https://pbs.twimg.com/profile_images/1248247779010310146/L8X8lRyH_400x400.jpg'
 image_response = requests.get(image_url)
 image = Image.open(BytesIO(image_response.content))
 
-# Create a hyperlink for the image
-st.markdown(f'[![UMBC Invasives]({image_url})](https://sustainability.umbc.edu/)')
-
 # Center the image using CSS styling
 st.markdown('<div style="text-align:center;">'
+            f'<a href="https://sustainability.umbc.edu/" target="_blank">'
             f'<img src="{image_url}" width="200" />'
+            '</a>'
             '</div>', unsafe_allow_html=True)
-
-# Display the image
-st.image(image, width=200)  # Set the width of the image to 200 pixels
 
 # Create a form for the image file
 image_file = st.file_uploader('Upload an image')
