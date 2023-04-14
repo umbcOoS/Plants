@@ -10,6 +10,14 @@ image_url = 'https://pbs.twimg.com/profile_images/1248247779010310146/L8X8lRyH_4
 image_response = requests.get(image_url)
 image = Image.open(BytesIO(image_response.content))
 
+# Create a hyperlink for the image
+st.markdown(f'[![UMBC Invasives]({image_url})](https://sustainability.umbc.edu/)')
+
+# Center the image using CSS styling
+st.markdown('<div style="text-align:center;">'
+            f'<img src="{image_url}" width="200" />'
+            '</div>', unsafe_allow_html=True)
+
 # Display the image
 st.image(image, width=200)  # Set the width of the image to 200 pixels
 
