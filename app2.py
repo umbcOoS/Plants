@@ -25,16 +25,26 @@ if st.button('Identify'):
     response = requests.post(url, params=params, files=files)
 
     # Display the API results
-    if response.ok:
-        results = response.json()
-        for result in results['results']:
-            st.markdown('**Result**')
-            st.write('Confidence:', result['score'])
-            st.write('Common name:', result['species']['commonNames'][0])
-            st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
-            gbif_id = result['gbif']['id']
-            gbif_url = f'https://www.gbif.org/species/{gbif_id}'
-            st.markdown(f'GBIF: [{gbif_id}]({gbif_url})', unsafe_allow_html=True)
-            st.markdown('---')
-    else:
-        st.error(f"API request failed with status code {response.status_code}")
+   # ... existing code ...
+
+# Display the API results
+if response.ok:
+    results = response.json()
+    counter = 0  # Counter variable to keep track of the number of results displayed
+    for result in results['results']:
+        counter += 1
+        if counter > 5:  # Break out of the loop after displaying 5 results
+            break
+
+        st.markdown('**Result**')
+        score_percent = result['score'] * 100  # Convert score to percentage
+        st.write('Confidence:', f'{score_percent:.1f}%')  # Display score as a percentage with 1 decimal places
+        st.write('Common name:', result['species']['commonNames'][0])
+        st.write('Scientific name:', result['species']['scientificNameWithoutAuthor'])
+        gbif_id = result['gbif']['id']
+        gbif_url = f'https://www.gbif.org/species/{gbif_id}'
+        st.markdown(f'GBIF: [{gbif_id}]({gbif_url})', unsafe_allow_html=True)
+        st.markdown('---')
+else:
+    st.error(f"API request failed with status code {response.status_code}")
+
