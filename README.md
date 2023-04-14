@@ -1,4 +1,4 @@
-UMBC Invasive Plants Identification App
+# UMBC Invasive Plants Identification App
 This is a web application that allows users to identify invasive plants using images. It utilizes the Plant.ID API provided by PlantNet, a collaborative research platform on plant biodiversity. The app is built using Streamlit, a Python framework for building interactive web applications.
 
 Features
